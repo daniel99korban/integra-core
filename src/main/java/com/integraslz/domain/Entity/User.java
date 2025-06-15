@@ -1,8 +1,6 @@
 package com.integraslz.domain.Entity;
 
-import java.security.AuthProvider;
 import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +15,7 @@ public class User {
     private UUID id;
     private String name;
     private String email;
-    private AuthProvider provider; 
+    private String provider; 
     private String providerId;
     
 }

@@ -1,9 +1,9 @@
 package com.integraslz.infrastructure.persistence.User;
 
-import java.security.AuthProvider;
 import java.util.UUID;
+
+import jakarta.validation.constraints.Pattern;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,11 +22,12 @@ public class UserEntity {
     private String name;
     private String email;
     
-    @Enumerated(EnumType.STRING)
-    private AuthProvider provider;
+    @Column(name = "provider", nullable = false)
+    @Pattern(regexp = "LOCAL|GOOGLE|FACEBOOK", message = "Provider inválido")
+    private String provider;
     private String providerId;
 
-    public UserEntity (UUID id, String name, String email, AuthProvider provider, String providerId) {
+    public UserEntity (UUID id, String name, String email, String provider, String providerId) {
         this.id = id;
         this.name = name;
         this.email = email;

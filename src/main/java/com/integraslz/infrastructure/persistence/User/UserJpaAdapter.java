@@ -1,6 +1,5 @@
 package com.integraslz.infrastructure.persistence.User;
 
-import java.security.AuthProvider;
 import java.util.*;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +21,7 @@ public class UserJpaAdapter implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByProviderIdAndProvider(String providerId, AuthProvider provider) {
+    public Optional<User> findByProviderIdAndProvider(String providerId, String provider) {
         return repository.findByProviderIdAndProvider(providerId, provider).map(this::toDomain);
     }
 

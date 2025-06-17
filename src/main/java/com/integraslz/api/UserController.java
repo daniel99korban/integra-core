@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import com.integraslz.application.User.UserService;
 import com.integraslz.domain.Entity.User;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -22,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public User register(@RequestBody @Valid User user) {
         return service.findOrCreate(
                 user.getName(),
                 user.getEmail(),

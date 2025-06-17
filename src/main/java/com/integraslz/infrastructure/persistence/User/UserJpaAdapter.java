@@ -42,6 +42,10 @@ public class UserJpaAdapter implements UserRepository {
     }
 
     private User toDomain(UserEntity entity) {
-        return new User(entity.getId(), entity.getName(), entity.getEmail(), entity.getProvider(), entity.getProviderId());
+        return new User(entity.getId(), 
+                        entity.getName(), 
+                        entity.getEmail(), 
+                        entity.getProvider(), 
+                        entity.getProviderId());
     }
 }
